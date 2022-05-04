@@ -1,3 +1,4 @@
+console.log("useDeviceOrientation");
 function onClick() {
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
     // Handle iOS 13+ devices.

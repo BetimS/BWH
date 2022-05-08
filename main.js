@@ -50,7 +50,7 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
   });
 */
     const vtkloader = new THREE.VTKLoader();
-  vtkloader.load("./resources/blh.vtk", function (geometry) {
+  vtkloader.load("./resources/brain.vtk", function (geometry) {
 
     geometry.computeVertexNormals();
     geometry.center();

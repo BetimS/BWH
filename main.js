@@ -25,6 +25,7 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
   const cubeMaterial = new THREE.MeshNormalMaterial();
   const threeCube = new THREE.Mesh(cubeGeometry, cubeMaterial);
   threeCube.frustumCulled = false;
+  //Full brain model exceeds 25mb
 /*
   const stlloader2 = new THREE.STLLoader();
   stlloader2.load("./resources/full_brain.stl", function (geometry) {

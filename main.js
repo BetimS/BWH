@@ -25,7 +25,7 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
   const cubeMaterial = new THREE.MeshNormalMaterial();
   const threeCube = new THREE.Mesh(cubeGeometry, cubeMaterial);
   threeCube.frustumCulled = false;
-
+/*
   const stlloader2 = new THREE.STLLoader();
   stlloader2.load("./resources/full_brain.stl", function (geometry) {
 
@@ -47,7 +47,29 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     threeStuffs.faceObject.add(mesh);
 
   });
+*/
+    const vtkloader = new THREE.VTKLoader();
+  vtkloader.load("./resources/blh.vtk", function (geometry) {
 
+    geometry.computeVertexNormals();
+    geometry.center();
+
+    const material = new THREE.MeshLambertMaterial( { color: 0x808080 } );
+    const mesh = new THREE.Mesh( geometry, material );
+    mesh.scale.multiplyScalar(0.0102);
+
+    // eye-balled transformation
+    mesh.rotateX( -Math.PI / 2 );
+    mesh.rotateZ( Math.PI);
+    mesh.translateZ(1);
+    mesh.translateX(-0.5);
+
+    window.mesh = mesh; // to prototype in the console
+
+    threeStuffs.faceObject.add(mesh);
+
+  });
+  
 window.addEventListener('deviceorientation', handleOrientation);
 
       function handleOrientation(event) {

@@ -72,7 +72,7 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
   });
   
     const right_brain = new THREE.VTKLoader();
-    right_brain.load("../resources/brh.vtk", function (geometry) {
+    right_brain.load("./resources/brh.vtk", function (geometry) {
 
       geometry.computeVertexNormals();
       geometry.center();

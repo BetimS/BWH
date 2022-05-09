@@ -50,7 +50,7 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
   });
 */
     const vtkloader = new THREE.VTKLoader();
-  vtkloader.load("./resources/brain.vtk", function (geometry) {
+  vtkloader.load("./resources/blh.vtk", function (geometry) {
 
     geometry.computeVertexNormals();
     geometry.center();
@@ -63,13 +63,35 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     mesh.rotateX( -Math.PI / 2 );
     mesh.rotateZ( Math.PI);
     mesh.translateZ(1);
-    mesh.translateX(-0.5);
+    mesh.translateX(-0.35);
 
     window.mesh = mesh; // to prototype in the console
 
     threeStuffs.faceObject.add(mesh);
 
   });
+  
+    const right_brain = new THREE.VTKLoader();
+    right_brain.load("../resources/brh.vtk", function (geometry) {
+
+      geometry.computeVertexNormals();
+      geometry.center();
+
+      const material = new THREE.MeshLambertMaterial( { color: 0x808080 } );
+      const mesh = new THREE.Mesh( geometry, material );
+      mesh.scale.multiplyScalar(0.0102);
+
+      // eye-balled transformation
+      mesh.rotateX( -Math.PI / 2 );
+      mesh.rotateZ( Math.PI);
+      mesh.translateZ(1);
+      mesh.translateX(0.35);
+
+      window.mesh = mesh; // to prototype in the console
+
+      threeStuffs.faceObject.add(mesh);
+
+    });
   
 window.addEventListener('deviceorientation', handleOrientation);
 

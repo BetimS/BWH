@@ -93,13 +93,15 @@ var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
 
     });
   
+  var header = document.getElementById("Coordinates");
 window.addEventListener('deviceorientation', handleOrientation);
 
       function handleOrientation(event) {
               const alpha = event.alpha;
               const beta = event.beta;
               const gamma = event.gamma;
-        console.log("Alpha:", alpha, "Beta:", beta, "Gamma:",gamma);
+        console.log("Alpha:", alpha.toFixed(2), "Beta:", beta.toFixed(2), "Gamma:",gamma.toFixed(2));
+        header.innerHTML="Alpha1: "+ alpha.toFixed(2)+ " Beta: "+ beta.toFixed(2)+ " Gamma: "+gamma.toFixed(2);
       }
 
       const stlloader = new THREE.STLLoader();

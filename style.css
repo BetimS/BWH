@@ -37,3 +37,14 @@ body {overflow: auto; overflow-y: auto;
     transform: rotateY(180deg);
   }
 }
+
+h1 {
+  font-size: 20px;
+}
+
+a:link {
+  color: blue;
+}
+a:visited{
+color:purple
+}
